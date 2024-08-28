@@ -32,6 +32,8 @@ public class TowerController : MonoBehaviour
         {
             // 총알 생성 코드 입력
             GameObject bulletObj = Instantiate(prefab, transform.position, transform.rotation);
+            BulletController bullet = bulletObj.GetComponent<BulletController>();
+            bullet.SetDestination(target.position);
             // 남은시간 다시 카운트
             remainTime = bulletShotTime;
         }
