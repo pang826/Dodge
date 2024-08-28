@@ -113,5 +113,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   target: {fileID: 0}
   prefab: {fileID: 189984778427406285, guid: 5236fb7b0f2bd5f4dbf645b675a20939, type: 3}
-  bulletShotTime: 3
+  bulletShotTime: 2
   remainTime: 0
+  isAttacking: 0

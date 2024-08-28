@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -7,6 +8,7 @@ public class PlayerController : MonoBehaviour
     // 인스펙터 창에서 참조하거나 값을 지정해주어서 쓰는 경우
     [SerializeField] Rigidbody rigid;
     [SerializeField] float moveSpeed;
+    public event Action OnDied;
 
     private void Update()
     {
@@ -25,6 +27,9 @@ public class PlayerController : MonoBehaviour
 
     public void TakeHit()
     {
+        OnDied?.Invoke();
         Destroy(gameObject);
     }
+
+    
 }

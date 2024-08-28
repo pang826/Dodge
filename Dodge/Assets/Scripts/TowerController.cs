@@ -8,7 +8,7 @@ public class TowerController : MonoBehaviour
     [SerializeField] GameObject prefab;
     [SerializeField] float bulletShotTime;
     [SerializeField] float remainTime; // 다음 총알 쏠때까지 남은 시간
-
+    [SerializeField] bool isAttacking; // 공격여부
     private void Start()
     {
         // GameObject.FindGameObjectWihtTag : 게임에 있는 태그를 통해서 특정 게임오브젝트를 찾기
@@ -24,6 +24,11 @@ public class TowerController : MonoBehaviour
 
     private void Update()
     {
+        // 공격 중이 아닐땐 총알생성을 하지 않도록 함
+        if(isAttacking == false)
+        {
+            return;
+        }
         // 다음 총알 발사까지 남은 시간을 계속 차감
         remainTime -= Time.deltaTime;
 
@@ -37,5 +42,15 @@ public class TowerController : MonoBehaviour
             // 남은시간 다시 카운트
             remainTime = bulletShotTime;
         }
+    }
+
+    public void AttackStart()
+    {
+        isAttacking = true;
+    }
+
+    public void AttackStop()
+    {
+        isAttacking = false;
     }
 }
