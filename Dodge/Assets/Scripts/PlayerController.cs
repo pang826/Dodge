@@ -20,7 +20,7 @@ public class PlayerController : MonoBehaviour
         float Z = Input.GetAxisRaw("Vertical");
         // 리지드바디 : 물리엔진을 담당하는 컴포넌트
         // 정규화 : 크기가 1이 아닌 벡터의 크기를 1로 만들기 (normalize)
-        rigid.velocity = new Vector3(X * moveSpeed, 0, Z * moveSpeed).normalized;
+        rigid.velocity = new Vector3(X, 0, Z).normalized * moveSpeed;
 
     }
 }
