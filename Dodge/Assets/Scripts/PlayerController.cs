@@ -22,4 +22,9 @@ public class PlayerController : MonoBehaviour
         // 정규화 : 크기가 1이 아닌 벡터의 크기를 1로 만들기 (normalize)
         rigid.velocity = new Vector3(X, 0, Z).normalized * moveSpeed;
     }
+
+    public void TakeHit()
+    {
+        Destroy(gameObject);
+    }
 }
